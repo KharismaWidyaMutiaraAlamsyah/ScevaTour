@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sceva Tour & Travel - Jelajahi Yogyakarta</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sceva: {
+                            navy: '#0F2A4A',      // Biru Navy khas Brosur Sceva
+                            darkBg: '#0A1C33',    // Navy Pekat
+                            gold: '#F7A600',      // Kuning/Oranye Emas Logo Sceva
+                            goldHover: '#E09500',
+                            cardBg: '#13355C'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-sceva-darkBg/95 backdrop-blur-md border-b border-sceva-gold/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-tr from-amber-500 to-sceva-gold rounded-xl flex items-center justify-center text-sceva-darkBg font-black text-2xl shadow-md">S</div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold tracking-tight text-white leading-none">SCEVA</span>
+                    <span class="text-[10px] font-bold tracking-widest text-sceva-gold uppercase mt-0.5">Tour & Travel</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 font-semibold text-slate-200 text-sm">
+                <a href="#home" class="hover:text-sceva-gold transition">Beranda</a>
+                <a href="#sewa-mobil" class="hover:text-sceva-gold transition">Sewa Mobil</a>
+                <a href="#paket-tour" class="hover:text-sceva-gold transition">Paket Tour Jogja</a>
+                <a href="#booking" class="hover:text-sceva-gold transition">Kalkulator & Booking</a>
+            </div>
+
+            <!-- Tombol Tanya Admin Nav -->
+            <button onclick="askAdmin()" class="hidden sm:inline-flex items-center gap-2 bg-sceva-gold hover:bg-sceva-goldHover text-sceva-darkBg font-bold text-sm px-5 py-2.5 rounded-full transition shadow-md shadow-sceva-gold/20">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                Tanya Admin
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-sceva-darkBg via-sceva-navy to-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-sceva-gold/20 text-sceva-gold border border-sceva-gold/30 font-semibold px-4 py-1.5 rounded-full text-xs mb-6">
+                        <i data-lucide="compass" class="w-3.5 h-3.5"></i> Your Journey, Our Priority
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                        Jelajahi Lebih Jauh, Bersama <span class="text-sceva-gold">SCEVA</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+                        Destinasi seru, perjalanan lebih bermakna. Layanan sewa mobil nyaman Daihatsu Sigra (2021) + Driver Profesional untuk wisata, bisnis, dan keliling Yogyakarta & sekitarnya.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#paket-tour" class="inline-flex justify-center items-center gap-2 bg-sceva-gold hover:bg-sceva-goldHover text-sceva-darkBg font-bold px-6 py-3.5 rounded-xl transition shadow-lg shadow-sceva-gold/20">
+                            Lihat Paket Tour
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <button onclick="askAdmin()" class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-6 py-3.5 rounded-xl transition backdrop-blur-sm">
+                            <i data-lucide="help-circle" class="w-4 h-4 text-sceva-gold"></i> Konsultasi Dulu
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Foto Mobil Daihatsu Sigra Putih -->
+                <div class="relative">
+                    <div class="bg-gradient-to-tr from-sceva-navy to-sceva-cardBg rounded-3xl p-6 border border-sceva-gold/30 shadow-2xl relative overflow-hidden">
+                        <span class="bg-sceva-gold text-sceva-darkBg px-3 py-1 rounded-full text-xs font-black tracking-wide uppercase">DAIHATSU SIGRA 2021</span>
+                        <h3 class="text-2xl font-extrabold text-white mt-4">Sewa Mobil + Driver</h3>
+                        <p class="text-slate-300 text-sm mt-1">Nyaman • Irit • Terpercaya</p>
+                        
+                        <div class="my-6 relative flex justify-center bg-white/5 rounded-2xl p-4 border border-white/10">
+                            <img src="sigra.jpg" alt="Daihatsu Sigra Putih Sceva Tour" class="rounded-xl object-contain h-48 sm:h-56 w-full filter drop-shadow-xl">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs bg-sceva-darkBg/60 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
+                            <div class="flex items-center gap-2 text-slate-200"><i data-lucide="check-circle" class="w-4 h-4 text-sceva-gold"></i> Kota Yogyakarta</div>
+                            <div class="flex items-center gap-2 text-slate-200"><i data-lucide="check-circle" class="w-4 h-4 text-sceva-gold"></i> Pantai & Candi</div>
+                            <div class="flex items-center gap-2 text-slate-200"><i data-lucide="check-circle" class="w-4 h-4 text-sceva-gold"></i> Luar Kota</div>
+                            <div class="flex items-center gap-2 text-slate-200"><i data-lucide="check-circle" class="w-4 h-4 text-sceva-gold"></i> Driver Profesional</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sewa Mobil Per Jam -->
+    <section id="sewa-mobil" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-sceva-gold font-extrabold text-xs uppercase tracking-widest">Tarif Sewa Mobil + Driver</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-sceva-navy mt-2">Harga Sewa Kendaraan</h2>
+                <p class="text-slate-600 mt-2">Sewa mobil nyaman Daihatsu Sigra untuk perjalanan wisata, bisnis, atau keliling kota.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- 6 Jam -->
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-sceva-gold hover:shadow-xl transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-amber-100 text-amber-800 rounded-2xl"><i data-lucide="clock" class="w-6 h-6"></i></span>
+                            <span class="text-xs font-bold bg-slate-200 text-slate-700 px-3 py-1 rounded-full">6 JAM</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-sceva-navy mb-2">Paket 6 Jam</h3>
+                        <p class="text-slate-500 text-sm mb-6">Cocok untuk keliling kota, wisata kuliner, atau urusan bisnis cepat.</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-sceva-navy mb-6">Rp 400.000 <span class="text-xs font-normal text-slate-500">/paket</span></div>
+                        <a href="#booking" onclick="selectBookingOption('sewa_6jam')" class="block text-center bg-sceva-navy hover:bg-sceva-darkBg text-white font-semibold py-3 rounded-xl transition">Pilih Paket</a>
+                    </div>
+                </div>
+
+                <!-- 12 Jam -->
+                <div class="bg-sceva-navy text-white rounded-3xl p-8 shadow-2xl relative flex flex-col justify-between border-2 border-sceva-gold">
+                    <span class="absolute -top-3 right-6 bg-sceva-gold text-sceva-darkBg text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Paling Populer</span>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-white/10 text-sceva-gold rounded-2xl"><i data-lucide="clock-4" class="w-6 h-6"></i></span>
+                            <span class="text-xs font-bold bg-sceva-gold/20 text-sceva-gold px-3 py-1 rounded-full">12 JAM</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Paket 12 Jam</h3>
+                        <p class="text-slate-300 text-sm mb-6">Pilihan ideal untuk eksplorasi penuh destinasi wisata Jogja seharian.</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-sceva-gold mb-6">Rp 600.000 <span class="text-xs font-normal text-slate-300">/paket</span></div>
+                        <a href="#booking" onclick="selectBookingOption('sewa_12jam')" class="block text-center bg-sceva-gold hover:bg-sceva-goldHover text-sceva-darkBg font-bold py-3 rounded-xl transition shadow-lg shadow-sceva-gold/20">Pilih Paket</a>
+                    </div>
+                </div>
+
+                <!-- Overtime -->
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:border-sceva-gold hover:shadow-xl transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="p-3 bg-amber-100 text-amber-800 rounded-2xl"><i data-lucide="hourglass" class="w-6 h-6"></i></span>
+                            <span class="text-xs font-bold bg-slate-200 text-slate-700 px-3 py-1 rounded-full">OVERTIME</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-sceva-navy mb-2">Biaya Overtime</h3>
+                        <p class="text-slate-500 text-sm mb-6">Tambahan waktu sewa jika perjalanan melebihi durasi paket awal.</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-sceva-navy mb-6">Rp 50.000 <span class="text-xs font-normal text-slate-500">/jam</span></div>
+                        <span class="block text-center bg-slate-200 text-slate-600 font-medium py-3 rounded-xl text-xs">Berlaku otomatis per jam</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paket Tour Jogja (15 Paket) -->
+    <section id="paket-tour" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sceva-gold font-extrabold text-xs uppercase tracking-widest">Jelajahi Yogyakarta</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-sceva-navy mt-2">Daftar Paket Tour Wisata</h2>
+                <p class="text-slate-600 mt-2">Harga per mobil (Daihatsu Sigra 1.2 R 2021) termasuk Driver Profesional & BBM sesuai paket rute.</p>
+            </div>
+
+            <!-- Grid 15 Paket -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="tourPackagesGrid">
+                <!-- Data di-render otomatis via JS -->
+            </div>
+
+            <!-- Include & Exclude Box -->
+            <div class="mt-16 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm grid md:grid-cols-2 gap-8">
+                <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
+                    <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-lg mb-4">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-emerald-600"></i>
+                        INCLUDE (Sudah Termasuk)
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-5 h-5 text-emerald-600 bg-emerald-100 rounded-full p-0.5"></i> Mobil Daihatsu Sigra 1.2 R (2021)</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-5 h-5 text-emerald-600 bg-emerald-100 rounded-full p-0.5"></i> Driver Profesional</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-5 h-5 text-emerald-600 bg-emerald-100 rounded-full p-0.5"></i> BBM sesuai paket</li>
+                    </ul>
+                </div>
+
+                <div class="bg-rose-50 rounded-2xl p-6 border border-rose-200">
+                    <div class="flex items-center gap-2 text-rose-900 font-extrabold text-lg mb-4">
+                        <i data-lucide="x-circle" class="w-6 h-6 text-rose-600"></i>
+                        EXCLUDE (Belum Termasuk)
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center gap-2.5"><i data-lucide="x" class="w-5 h-5 text-rose-600 bg-rose-100 rounded-full p-0.5"></i> Tiket Masuk Destinasi Wisata</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="x" class="w-5 h-5 text-rose-600 bg-rose-100 rounded-full p-0.5"></i> Biaya Parkir</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="x" class="w-5 h-5 text-rose-600 bg-rose-100 rounded-full p-0.5"></i> Makan Driver</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="x" class="w-5 h-5 text-rose-600 bg-rose-100 rounded-full p-0.5"></i> Wahana Khusus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kalkulator & Booking WhatsApp -->
+    <section id="booking" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-sceva-darkBg rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden border border-sceva-gold/30">
+                <div class="relative z-10">
+                    <div class="text-center max-w-xl mx-auto mb-10">
+                        <span class="text-sceva-gold font-extrabold text-xs uppercase tracking-widest">Reservasi Cepat</span>
+                        <h2 class="text-3xl font-bold mt-1 mb-2">Form Pemesanan & Kalkulator Biaya</h2>
+                        <p class="text-slate-300 text-sm">Pilih sewa per jam atau paket tour per hari untuk terhubung langsung ke WhatsApp Sceva Tour.</p>
+                    </div>
+
+                    <form id="bookingForm" onsubmit="sendWhatsApp(event)" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">NAMA PEMESAN</label>
+                                <input type="text" id="name" required placeholder="Masukkan nama lengkap" class="w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-sceva-gold">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">NOMOR WHATSAPP</label>
+                                <input type="tel" id="userPhone" placeholder="Contoh: 081234567890" class="w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-sceva-gold">
+                            </div>
+                        </div>
+
+                        <!-- Titik Penjemputan & Drop-off -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="block text-xs font-semibold text-slate-300">TITIK PENJEMPUTAN</label>
+                                    <span class="text-[10px] text-sceva-gold">*Area YIA/Solo/Semarang ada biaya tambahan</span>
+                                </div>
+                                <input type="text" id="pickupLocation" required oninput="calculateTotal()" placeholder="Contoh: Hotel Tentrem / Stasiun Tugu / YIA" class="w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-sceva-gold">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">TITIK TERAKHIR PENGANTARAN (DROP-OFF)</label>
+                                <input type="text" id="dropoffLocation" required placeholder="Contoh: Bandara YIA / Stasiun Tugu / Hotel X" class="w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-sceva-gold">
+                            </div>
+                        </div>
+
+                        <!-- Rentang Tanggal Perjalanan -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">TANGGAL MULAI</label>
+                                <input type="date" id="startDate" required onchange="renderDaySelects()" class="w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sceva-gold">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">TANGGAL SELESAI</label>
+                                <input type="date" id="endDate" required onchange="renderDaySelects()" class="w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sceva-gold">
+                            </div>
+                        </div>
+
+                        <!-- Container Pilihan Paket per Hari (Dinamis Generated via JS) -->
+                        <div id="dayPackagesContainer" class="space-y-4">
+                            <!-- Paket Day 1, Day 2, dst akan muncul di sini -->
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">ESTIMASI OVERTIME TOTAL (JAM)</label>
+                            <input type="number" id="overtimeHours" min="0" value="0" oninput="calculateTotal()" placeholder="0" class="w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sceva-gold">
+                        </div>
+
+                        <!-- Total Display Card & Dp Info -->
+                        <div class="bg-sceva-navy rounded-2xl p-6 border border-sceva-gold/40 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-medium text-slate-300 block">TOTAL ESTIMASI BIAYA</span>
+                                    <span id="durationBadge" class="bg-sceva-gold/20 text-sceva-gold text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-sceva-gold/30">1 Hari</span>
+                                </div>
+                                <div id="totalPriceDisplay" class="text-3xl font-extrabold text-sceva-gold">Rp 400.000</div>
+                                <span id="dpInfoNotice" class="text-xs text-emerald-400 mt-1 block font-semibold">DP 30%: Rp 120.000 (Pelunasan H-Day: Rp 280.000)</span>
+                                <span id="airportBadgeNotice" class="hidden text-[11px] text-amber-400 mt-1 block font-medium"></span>
+                            </div>
+                            <button type="submit" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-green-500/20">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-sceva-darkBg text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 bg-sceva-gold rounded-lg flex items-center justify-center text-sceva-darkBg font-black">S</div>
+                    <span class="text-lg font-bold text-white tracking-tight">SCEVA TOUR & TRAVEL</span>
+                </div>
+                <p class="text-xs leading-relaxed text-slate-400">Destinasi seru, perjalanan lebih bermakna. Penyedia sewa mobil dan paket wisata Yogyakarta terpercaya.</p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-4">Kontak WhatsApp Resmi</h4>
+                <ul class="space-y-2 text-xs">
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-sceva-gold"></i> 0858 2821 5188</li>
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-sceva-gold"></i> 0813 1197 7254</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-4">Sosial Media</h4>
+                <ul class="space-y-2 text-xs">
+                    <li class="flex items-center gap-2"><i data-lucide="instagram" class="w-4 h-4 text-sceva-gold"></i> @scevatour.id</li>
+                    <li class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-sceva-gold"></i> @scevatourtravel_</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900 pt-6 text-center text-xs text-slate-500">
+            © 2026 Sceva Tour & Travel. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Script Data & Logic -->
+    <script>
+        // Data 15 Paket Tour dari Brosur Sceva
+        const tourPackages = [
+            { id: "Paket 01", title: "City Heritage", route: "Keraton Yogyakarta – Taman Sari – Malioboro", price: 400000 },
+            { id: "Paket 02", title: "Cultural Jogja", route: "Kotagede – Museum Sonobudoyo – Alun-Alun Kidul", price: 400000 },
+            { id: "Paket 03", title: "Temple Journey", route: "Candi Prambanan – Candi Ijo – Tebing Breksi", price: 550000 },
+            { id: "Paket 04", title: "Sunset Escape", route: "Obelix Hills – Candi Ijo – Tebing Breksi", price: 550000 },
+            { id: "Paket 06", title: "Merapi Adventure", route: "Lava Tour Merapi – Museum Sisa Hartaku", price: 600000 },
+            { id: "Paket 07", title: "Nature Escape", route: "Bhumi Merapi – Ledok Sambi – Kaliurang", price: 600000 },
+            { id: "Paket 08", title: "Ocean Escape", route: "On The Rock – HeHa Ocean View – Puncak Segoro", price: 700000 },
+            { id: "Paket 09", title: "Beach Explorer", route: "Drini Park – Pantai Drini – Pantai Mesra", price: 700000 },
+            { id: "Paket 10", title: "Blue Paradise", route: "Jungwok Blue Ocean – Pantai Wediombo", price: 750000 },
+            { id: "Paket 11", title: "Hidden Nature", route: "Goa Pindul – wisata sekitar Bejiharjo", price: 700000 },
+            { id: "Paket 12", title: "Mountain View", route: "Pule Payung – Waduk Sermo", price: 700000 },
+            { id: "Paket 13", title: "Menoreh Journey", route: "Tumpeng Menoreh – Omah Cantrik", price: 750000 },
+            { id: "Paket 14", title: "Borobudur Escape", route: "Candi Borobudur – Svargabumi", price: 750000 },
+            { id: "Paket 15", title: "Magelang Highland", route: "Nepal Van Java – destinasi sekitar", price: 850000 },
+            { id: "Paket 16", title: "K Village & Beyond", route: "K Village – HeHa Sky View", price: 500000 }
+        ];
+
+        // Format Currency Rupiah
+        function formatIDR(val) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(val);
+        }
+
+        // Generate Opsi Dropdown Html
+        function generateOptionsHTML() {
+            let options = `
+                <optgroup label="Sewa Mobil Per Jam">
+                    <option value="400000" data-name="Sewa Mobil 6 Jam">Sewa Mobil 6 Jam - Rp 400.000</option>
+                    <option value="600000" data-name="Sewa Mobil 12 Jam">Sewa Mobil 12 Jam - Rp 600.000</option>
+                </optgroup>
+                <optgroup label="Paket Tour Yogyakarta">
+            `;
+            tourPackages.forEach(pkg => {
+                options += `<option value="${pkg.price}" data-name="${pkg.id}: ${pkg.title}">${pkg.id}: ${pkg.title} (${formatIDR(pkg.price)})</option>`;
+            });
+            options += `</optgroup>`;
+            return options;
+        }
+
+        // Render Kartu Paket Wisata
+        function initTourData() {
+            const grid = document.getElementById('tourPackagesGrid');
+
+            tourPackages.forEach(pkg => {
+                const cardHtml = `
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="bg-sceva-navy text-sceva-gold text-xs font-black px-3 py-1 rounded-full border border-sceva-gold/30">${pkg.id}</span>
+                                <span class="text-xs font-bold text-slate-400">/mobil</span>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-sceva-navy mb-2">${pkg.title}</h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed"><i data-lucide="map-pin" class="w-3.5 h-3.5 inline text-sceva-gold mr-1"></i>${pkg.route}</p>
+                        </div>
+                        <div class="border-t border-slate-100 pt-4 flex items-center justify-between">
+                            <div class="text-lg font-extrabold text-amber-600">${formatIDR(pkg.price)}</div>
+                            <a href="#booking" onclick="selectTourPackage('${pkg.id}')" class="text-xs font-bold text-sceva-navy hover:text-sceva-gold flex items-center gap-1">Pesan <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHtml);
+            });
+
+            lucide.createIcons();
+            setDefaultDates();
+        }
+
+        function setDefaultDates() {
+            const today = new Date();
+            document.getElementById('startDate').value = today.toISOString().split('T')[0];
+            document.getElementById('endDate').value = today.toISOString().split('T')[0];
+            renderDaySelects();
+        }
+
+        function getTravelDays() {
+            const startVal = document.getElementById('startDate').value;
+            const endVal = document.getElementById('endDate').value;
+            if (!startVal || !endVal) return 1;
+
+            const start = new Date(startVal);
+            const end = new Date(endVal);
+
+            if (end < start) {
+                document.getElementById('endDate').value = startVal;
+                return 1;
+            }
+
+            const diffTime = Math.abs(end - start);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+            return diffDays > 0 ? diffDays : 1;
+        }
+
+        // Render Select Dinamis berdasarkan jumlah Hari
+        function renderDaySelects(presetPkgId = null) {
+            const days = getTravelDays();
+            const container = document.getElementById('dayPackagesContainer');
+            container.innerHTML = '';
+
+            const optionsHTML = generateOptionsHTML();
+
+            for (let i = 1; i <= days; i++) {
+                const labelText = days === 1 ? 'PILIH LAYANAN / PAKET TOUR' : `HARI KE-${i} (DAY ${i})`;
+                const dayHtml = `
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">${labelText}</label>
+                        <select id="daySelect_${i}" onchange="calculateTotal()" class="day-select-input w-full bg-sceva-navy border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-sceva-gold">
+                            ${optionsHTML}
+                        </select>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', dayHtml);
+            }
+
+            if (presetPkgId) {
+                const firstSelect = document.getElementById('daySelect_1');
+                if (firstSelect) {
+                    for (let j = 0; j < firstSelect.options.length; j++) {
+                        if (firstSelect.options[j].getAttribute('data-name')?.includes(presetPkgId)) {
+                            firstSelect.selectedIndex = j;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            calculateTotal();
+        }
+
+        // Hitung Biaya Total
+        function calculateTotal() {
+            const days = getTravelDays();
+            document.getElementById('durationBadge').innerText = `${days} Hari`;
+
+            let totalPackageCost = 0;
+            for (let i = 1; i <= days; i++) {
+                const select = document.getElementById(`daySelect_${i}`);
+                if (select) {
+                    totalPackageCost += parseFloat(select.value) || 0;
+                }
+            }
+
+            const overtimeHours = parseInt(document.getElementById('overtimeHours').value) || 0;
+            const overtimeCost = overtimeHours * 50000;
+
+            const pickupInput = document.getElementById('pickupLocation').value.toUpperCase();
+            let extraFee = 0;
+            let noticeText = "";
+
+            if (pickupInput.includes('YIA') || pickupInput.includes('AIRPORT YIA')) {
+                extraFee = 250000;
+                noticeText = "✓ Termasuk Surcharge Bandara YIA (+Rp 250.000)";
+            } else if (pickupInput.includes('SOLO') || pickupInput.includes('SOC') || pickupInput.includes('ADI SOEMARMO')) {
+                extraFee = 350000;
+                noticeText = "✓ Termasuk Biaya Penjemputan Solo (+Rp 350.000)";
+            } else if (pickupInput.includes('SEMARANG') || pickupInput.includes('SRG') || pickupInput.includes('AHMAD YANI')) {
+                extraFee = 500000;
+                noticeText = "✓ Termasuk Biaya Penjemputan Semarang (+Rp 500.000)";
+            }
+
+            const noticeBadge = document.getElementById('airportBadgeNotice');
+            if (noticeText !== "") {
+                noticeBadge.innerText = noticeText;
+                noticeBadge.classList.remove('hidden');
+            } else {
+                noticeBadge.classList.add('hidden');
+            }
+
+            const total = totalPackageCost + overtimeCost + extraFee;
+            const dp30 = total * 0.3;
+            const remaining = total - dp30;
+
+            document.getElementById('totalPriceDisplay').innerText = formatIDR(total);
+            document.getElementById('dpInfoNotice').innerText = `DP 30%: ${formatIDR(dp30)} (Pelunasan Hari H: ${formatIDR(remaining)})`;
+        }
+
+        // Pilihan Otomatis dari Klik Tombol Pesan Kartu
+        function selectTourPackage(pkgId) {
+            renderDaySelects(pkgId);
+        }
+
+        function selectBookingOption(type) {
+            renderDaySelects();
+            const firstSelect = document.getElementById('daySelect_1');
+            if(firstSelect) {
+                if(type === 'sewa_6jam') firstSelect.selectedIndex = 0;
+                if(type === 'sewa_12jam') firstSelect.selectedIndex = 1;
+            }
+            calculateTotal();
+        }
+
+        // Send WA dengan Itinerary per Hari & Drop-off
+        function sendWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const userPhone = document.getElementById('userPhone').value || '-';
+            const pickupLocation = document.getElementById('pickupLocation').value || '-';
+            const dropoffLocation = document.getElementById('dropoffLocation').value || '-';
+            
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const days = getTravelDays();
+
+            const overtimeHours = parseInt(document.getElementById('overtimeHours').value) || 0;
+            const overtimeCost = overtimeHours * 50000;
+
+            const targetPhone = "6285828215188"; 
+
+            const iconUser = "\u{1F464}";
+            const iconCar = "\u{1F697}";
+            const iconMoney = "\u{1F4B8}";
+            const iconBank = "\u{1F3E6}";
+
+            // Loop Rincian Paket per Hari
+            let dayBreakdownText = "";
+            let totalPackageCost = 0;
+
+            for (let i = 1; i <= days; i++) {
+                const select = document.getElementById(`daySelect_${i}`);
+                if (select) {
+                    const selectedOpt = select.options[select.selectedIndex];
+                    const serviceName = selectedOpt.getAttribute('data-name') || selectedOpt.text;
+                    const price = parseFloat(select.value) || 0;
+                    totalPackageCost += price;
+
+                    if (days === 1) {
+                        dayBreakdownText += `• Layanan / Paket: ${serviceName} (${formatIDR(price)})\n`;
+                    } else {
+                        dayBreakdownText += `• Day ${i}: ${serviceName} (${formatIDR(price)})\n`;
+                    }
+                }
+            }
+
+            // Hitung Biaya Penjemputan Luar Kota/Bandara
+            const pickupUpper = pickupLocation.toUpperCase();
+            let extraFee = 0;
+            let pickupName = "";
+
+            if (pickupUpper.includes('YIA')) {
+                extraFee = 250000;
+                pickupName = "Penjemputan Bandara YIA";
+            } else if (pickupUpper.includes('SOLO') || pickupUpper.includes('SOC')) {
+                extraFee = 350000;
+                pickupName = "Penjemputan Bandara/Kota Solo";
+            } else if (pickupUpper.includes('SEMARANG') || pickupUpper.includes('SRG')) {
+                extraFee = 500000;
+                pickupName = "Penjemputan Bandara/Kota Semarang";
+            }
+
+            const total = totalPackageCost + overtimeCost + extraFee;
+            const dp30 = total * 0.3;
+            const remaining = total - dp30;
+
+            let dateRangeText = startDate === endDate ? `${startDate} (1 Hari)` : `${startDate} s.d. ${endDate} (${days} Hari)`;
+
+            // Rincian Biaya yang rapi
+            let costBreakdown = `• Subtotal Paket (${days} Hari): ${formatIDR(totalPackageCost)}`;
+            if (extraFee > 0) {
+                costBreakdown += `\n• Biaya Tambahan (${pickupName}): ${formatIDR(extraFee)}`;
+            }
+            if (overtimeCost > 0) {
+                costBreakdown += `\n• Biaya Overtime (${overtimeHours} Jam): ${formatIDR(overtimeCost)}`;
+            }
+
+            const textMessage = 
+`*RESERVASI BARU - SCEVA TOUR & TRAVEL*
+=================================
+
+${iconUser} *DATA PEMESAN*
+- Nama: ${name}
+- No. WhatsApp: ${userPhone}
+- Titik Penjemputan: ${pickupLocation}
+- Titik Pengantaran Terakhir (Drop-off): ${dropoffLocation}
+
+${iconCar} *RINCIAN PAKET & ITINERARY PER HARI*
+- Tanggal Perjalanan: ${dateRangeText}
+${dayBreakdownText}- Estimasi Overtime: ${overtimeHours} Jam
+
+${iconMoney} *RINCIAN BIAYA & PEMBAYARAN*
+${costBreakdown}
+---------------------------------
+- *TOTAL KESELURUHAN: ${formatIDR(total)}*
+- *DP Booking (30%): ${formatIDR(dp30)}*
+- *Pelunasan (Sisa 70%): ${formatIDR(remaining)}* _(Dilunasi pada Hari H saat penjemputan)_
+
+${iconBank} *REKENING PEMBAYARAN*
+Pembayaran DP 30% dapat ditransfer via rekening resmi Sceva Tour:
+- *BRI:* 016301098700503 a.n Kharisma Widya Mutiara Alamsyah
+- *BCA:* 0661312369 a.n Bagus Rizky Saputra
+
+**bukti transfer wajib di lampirkan**
+
+=================================
+Mohon konfirmasi ketersediaan armada dan jadwalnya ya Admin. Terima kasih!`;
+
+            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(textMessage)}`, '_blank');
+        }
+
+        // WhatsApp Format Tanya / Konsultasi Admin
+        function askAdmin() {
+            const targetPhone = "6285828215188";
+            const iconWave = "\u{1F44B}";
+
+            const textMessage = 
+`Halo Admin *SCEVA TOUR & TRAVEL* ${iconWave}
+
+Saya tertarik ingin konsultasi / tanya-tanya terlebih dahulu mengenai sewa mobil dan paket tour wisata di Yogyakarta.
+
+Mohon bantuannya ya kak. Terima kasih!`;
+
+            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(textMessage)}`, '_blank');
+        }
+
+        // Run On Load
+        window.onload = function() {
+            initTourData();
+        };
+    </script>
+</body>
+</html>
